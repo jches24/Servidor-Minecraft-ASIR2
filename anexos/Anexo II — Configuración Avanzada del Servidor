@@ -1,0 +1,5 @@
+Se centra en la lógica interna y la persistencia de datos:
+Gestión de Permisos: Comandos de LuckPerms para crear el grupo admin y asignar a los integrantes
+Backups: Un script en Bash (backup_mysql.sh) configurado en el crontab del sistema para realizar volcados de MySQL diariamente a las 02:00
+Migración de Datos: Comandos sed utilizados para cambiar la configuración del plugin Plan de SQLite a MySQL sin necesidad de interfaz gráfica, logrando migrar 6 jugadores y 23 sesiones
+Análisis en Grafana: Se incluyen las queries SQL utilizadas para calcular el ranking de horas de juego y las sesiones por franja horaria, identificando el pico de actividad a las 20:00
