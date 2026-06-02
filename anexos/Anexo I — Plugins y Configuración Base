@@ -1,0 +1,7 @@
+
+Este anexo detalla la instalación de los componentes del servidor y la gestión de contenedores:
+Descarga de Plugins: Se incluyen comandos verificados mediante wget y curl para obtener las versiones más recientes de GitHub de plugins como Spark, Plan, Jobs Reborn, CMILib, Vault y LuckPerms
+Procedimiento de Instalación: Todos los plugins se copian al contenedor con docker cp y se les asignan permisos chmod 777 de forma manual para evitar errores de escritura en los volúmenes
+El plugin Slimefun requirió una subida manual mediante scp desde un equipo local
+Comandos de Gestión: Se listan comandos esenciales de Docker Compose para arrancar (up -d), parar (down), ver logs (logs --tail) y ejecutar comandos de administración en el juego vía RCON (rcon-cli op)
+Incidencias Técnicas: Se documentan problemas resueltos como la falta de capacidad en Oracle Cloud, errores de sintaxis en el script de Python y la incompatibilidad definitiva de EssentialsX
