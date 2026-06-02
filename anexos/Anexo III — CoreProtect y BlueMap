@@ -1,0 +1,8 @@
+Documenta las herramientas de trazabilidad y visualización 3D:
+CoreProtect v21.2: Instrucciones para su instalación y comandos de uso como /co inspect (inspección de bloques) y /co rollback (reversión de acciones)
+BlueMap v3.21: Detalla la resolución del conflicto de versiones (la v5.20 era incompatible) y la edición de core.conf para aceptar la descarga de recursos
+Servicios Finales: Una tabla con las direcciones IP y puertos operativos al cierre del proyecto:
+    Minecraft: 178.105.93.155:25565
+    Grafana: Port 3000
+    Plan: Port 8804
+    BlueMap: Port 8100
