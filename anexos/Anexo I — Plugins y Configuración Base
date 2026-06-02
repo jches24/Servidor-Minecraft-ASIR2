@@ -1,4 +1,3 @@
-
 Este anexo detalla la instalación de los componentes del servidor y la gestión de contenedores:
 Descarga de Plugins: Se incluyen comandos verificados mediante wget y curl para obtener las versiones más recientes de GitHub de plugins como Spark, Plan, Jobs Reborn, CMILib, Vault y LuckPerms
 Procedimiento de Instalación: Todos los plugins se copian al contenedor con docker cp y se les asignan permisos chmod 777 de forma manual para evitar errores de escritura en los volúmenes
