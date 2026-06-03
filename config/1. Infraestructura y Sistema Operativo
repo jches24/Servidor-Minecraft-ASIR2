@@ -1,0 +1,4 @@
+Servidor: VPS Hetzner CX23 con Ubuntu Server 22.04 LTS en modo headless
+Red: Configuración mediante Netplan con IP fija (178.105.93.155)
+SSH: Acceso restringido exclusivamente a autenticación por clave pública, deshabilitando el acceso por contraseña
+Tareas Automáticas: Uso de cron para ejecutar un script de backup diario (mysqldump) a las 02:00 y realizar la limpieza de logs
