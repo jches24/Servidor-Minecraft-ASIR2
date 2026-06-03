@@ -1,0 +1,3 @@
+Versión: PaperMC v1.20.4
+Modo de Juego: online-mode desactivado para entornos académicos y regla keepInventory true activa para no interrumpir los datos de sesión de los jugadores al morir.
+Spawn: Reubicado en un bioma de Flower Forest mediante el comando /setworldspawn
