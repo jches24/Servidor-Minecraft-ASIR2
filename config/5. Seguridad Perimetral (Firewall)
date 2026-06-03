@@ -1,0 +1,7 @@
+Se implementó una doble capa de seguridad (Hetzner y UFW) permitiendo solo los siguientes puertos:
+    22/TCP: SSH (Administración).
+    25565/TCP: Minecraft (Juego).
+    3000/TCP: Grafana (Dashboards).
+    8804/TCP: Plan (Analítica detallada).
+    8100/TCP: BlueMap (Mapa 3D).
+    Política por defecto: Denegación de todo el tráfico entrante no especificado
