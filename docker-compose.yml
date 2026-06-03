@@ -1,0 +1,96 @@
+# ─────────────────────────────────────────────────────────
+# docker-compose.yml
+# ─────────────────────────────────────────────────────────
+
+version: '3.8'
+
+services:
+
+  # ── Servidor de Minecraft ───────────────────────────────
+  minecraft:
+    image: itzg/minecraft-server:java21
+    container_name: minecraft
+    restart: unless-stopped
+    ports:
+      - "25565:25565"   # Acceso al juego
+      - "8100:8100"     # BlueMap (mapa 3D)
+      - "8804:8804"     # Plan Analytics
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      VERSION: "1.20.4"
+      MEMORY: "3G"
+      ENABLE_RCON: "true"
+      RCON_PORT: "25575"
+      RCON_PASSWORD: "tu_password_rcon"
+      MAX_PLAYERS: "10"
+      MOTD: "Minecraft Analytics Platform - ASIR2"
+    volumes:
+      - minecraft_data:/data
+    networks:
+      - mcnet
+    depends_on:
+      - mysql
+
+  # ── Base de datos MySQL ─────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    # Puerto 3306 NO expuesto al exterior
+    # Solo accesible desde la red interna Docker
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: minecraft_analytics
+      MYSQL_USER: mcuser
+      MYSQL_PASSWORD: mcpassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./config/mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mcnet
+
+  # ── Grafana (visualización de métricas) ─────────────────
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"     # Dashboard de Grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - mcnet
+    depends_on:
+      - mysql
+
+  # ── Data Collector (script Python vía RCON) ─────────────
+  data-collector:
+    image: python:3.11-slim
+    container_name: data-collector
+    restart: unless-stopped
+    volumes:
+      - ./scripts:/scripts
+    command: >
+      bash -c "pip install -r /scripts/requirements.txt -q &&
+               python /scripts/data-collector.py"
+    networks:
+      - mcnet
+    depends_on:
+      - minecraft
+      - mysql
+
+# ── Volúmenes persistentes ──────────────────────────────
+volumes:
+  minecraft_data:
+    name: minecraft_data
+  mysql_data:
+    name: mysql_data
+  grafana_data:
+    name: grafana_data
+
+# ── Red interna Docker ──────────────────────────────────
+networks:
+  mcnet:
+    driver: bridge
+    name: mcnet
