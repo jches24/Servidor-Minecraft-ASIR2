@@ -1,3 +1,38 @@
-Versión: PaperMC v1.20.4
-Modo de Juego: online-mode desactivado para entornos académicos y regla keepInventory true activa para no interrumpir los datos de sesión de los jugadores al morir.
-Spawn: Reubicado en un bioma de Flower Forest mediante el comando /setworldspawn
+# ⚙️ Configuración del Servidor de Juego (PaperMC)
+
+Servidor Minecraft Analytics Platform - ASIR2 2025-2026
+
+---
+
+## 🖥️ Especificaciones del servidor
+
+| Parámetro | Valor |
+|-----------|-------|
+| **Proveedor** | Hetzner Cloud CX23 |
+| **Sistema Operativo** | Ubuntu Server 22.04 LTS |
+| **Motor de juego** | PaperMC v1.20.4 |
+| **Java** | Java 21 |
+| **Memoria asignada** | 3G |
+| **Jugadores máximos** | 10 concurrentes |
+
+
+## 🔧 Decisiones técnicas
+
+### PaperMC sobre Forge/Fabric
+Se eligió PaperMC en lugar de mods (Forge/Fabric) por dos razones principales:
+- Permite acceso desde clientes estándar de Minecraft sin modificaciones
+- Ofrece mejor rendimiento asíncrono gracias a las optimizaciones propias de Paper
+
+---
+## 📋 Configuración de LuckPerms
+
+Gestión de grupos y permisos mediante LuckPerms:
+
+# Crear grupo admin
+/lp creategroup admin
+
+# Asignar jugador al grupo admin
+/lp user NombreJugador parent set admin
+
+# Ver permisos de un jugador
+/lp user NombreJugador permission info
