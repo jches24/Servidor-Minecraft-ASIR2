@@ -1,0 +1,6 @@
+# requirements.txt
+# Dependencias Python para el data-collector
+# Instalar con: pip install -r requirements.txt
+
+mcrcon==0.7.0
+mysql-connector-python==8.3.0
