@@ -1,3 +1,0 @@
-Plan (Player Analytics): Se migró su base de datos de SQLite a MySQL editando el archivo config.yml (cambiando el Host a mysql y definiendo el usuario/contraseña de la red interna de Docker)
-BlueMap: Se editó el archivo core.conf para establecer accept-download: true, permitiendo el renderizado del mapa 3D en el puerto 8100
-LuckPerms: Se configuró un grupo llamado admin con permisos totales (* true), asignando a los desarrolladores del proyecto a dicho grupo

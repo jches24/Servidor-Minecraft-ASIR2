@@ -1,0 +1,65 @@
+# 🔌 Ecosistema de Plugins
+
+Servidor Minecraft Analytics Platform - ASIR2 2025-2026
+
+El servidor utiliza 11 plugins organizados por categoría funcional,
+desplegados sobre PaperMC v1.20.4 con Java 21.
+
+---
+
+## 📊 Rendimiento y Analítica
+
+| Plugin | Función |
+|--------|---------|
+| **Spark** | Monitorización de rendimiento del servidor en tiempo real (TPS, CPU, memoria) |
+| **Plan Player Analytics** | Analítica completa de sesiones, actividad y comportamiento de jugadores. Migrado de SQLite a MySQL para centralizar datos |
+
+---
+
+## 👥 Gestión y Permisos
+
+| Plugin | Función |
+|--------|---------|
+| **LuckPerms** | Sistema de permisos y grupos. Gestiona el grupo `admin` y los roles de jugadores |
+
+---
+
+## 💰 Sistema Económico
+
+| Plugin | Función |
+|--------|---------|
+| **Jobs Reborn** | Asigna trabajos a jugadores y genera salarios automáticos según actividad |
+| **Vault** | API intermediaria que conecta el sistema económico con el resto de plugins |
+| **TNE (The New Economy)** | Motor económico principal del servidor |
+| **ChestShop** | Tiendas físicas en el mundo para compra/venta de recursos. Permite contrastar hipótesis de consumo |
+
+---
+
+## 🔍 Trazabilidad y Seguridad
+
+| Plugin | Función |
+|--------|---------|
+| **CoreProtect** | Registro completo de interacciones con bloques. Permite auditar, inspeccionar y restaurar cambios mediante `/co inspect` |
+
+---
+
+## 🗺️ Visualización y Contenido
+
+| Plugin | Función |
+|--------|---------|
+| **BlueMap v3.21** | Mapa 3D interactivo del mundo accesible desde el navegador en el puerto 8100. Se utilizó la v3.21 por compatibilidad con PaperMC 1.20.4 |
+| **Slimefun** | Expansión de contenido con 555 objetos adicionales cargados correctamente |
+
+---
+
+## ⚠️ Incidencias resueltas
+
+- **EssentialsX** fue descartado por incompatibilidad con el ecosistema de plugins instalado.
+Se sustituyó su funcionalidad distribuyéndola entre LuckPerms, TNE y Jobs Reborn.
+
+---
+
+## 📌 Notas técnicas
+
+- MySQL (puerto 3306) no está expuesto al exterior, solo accesible en la red interna Docker.
+- Plan fue migrado de SQLite a MySQL editando su
